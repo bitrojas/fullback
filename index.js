@@ -27,16 +27,16 @@ PORT = process.env.API_PORT;
     try {
         switch (process.env.NODE_ENV) {
             case 'prd':
-                URI = `mongodb+srv://prd_${process.env.DB_USER}:prd_${process.env.DB_PASS}@imperial.ffnbucj.mongodb.net/`
+                URI = `mongodb+srv://prd_${process.env.DB_USER}:prd_${process.env.DB_PASS}@imperial.ffnbucj.mongodb.net/prd_${process.env.DB_NAME}`
                 //logger.error(URI);
                 break;
             case 'dev':
-                URI = `mongodb+srv://dev_${process.env.DB_USER}:dev_${process.env.DB_PASS}@imperial.ffnbucj.mongodb.net/`
+                URI = `mongodb+srv://dev_${process.env.DB_USER}:dev_${process.env.DB_PASS}@imperial.ffnbucj.mongodb.net/dev_${process.env.DB_NAME}`
                 //logger.info(URI);
                 break;
             case 'tst':
-                URI = `mongodb+srv://tst_${process.env.DB_USER}:tst_${process.env.DB_PASS}@imperial.ffnbucj.mongodb.net/`
-                //logger.trace(URI);
+                URI = `mongodb+srv://tst_${process.env.DB_USER}:tst_${process.env.DB_PASS}@imperial.ffnbucj.mongodb.net/tst_${process.env.DB_NAME}`
+                logger.trace(URI);
                 break;
         }
         await mongo.connect(URI);

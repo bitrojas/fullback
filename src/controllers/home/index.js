@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 
 /* LOGS */
 const log4 = require("log4js");
-const logger = log4.getLogger("server.js");
+const logger = log4.getLogger("homeController.js");
 logger.level = 'all';
 
 const getHome = (req, res) => {
@@ -27,7 +27,7 @@ const getHome = (req, res) => {
             "msg": error.message,
             "data": []
         }
-        res.status(401).send(response);
+        res.status(500).send(response);
     }
 }
 
